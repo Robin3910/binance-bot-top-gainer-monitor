@@ -3,12 +3,14 @@ const SECRET_KEY = '';
 const EXCEED_PERCENT = 5;
 const TODAY_LIMIT = 20;
 const NOTIFY_INTERVAL = 3600000; // 1hour
+const BASE_URL = "https://fapi.binance.com";
 module.exports = {
     API_KEY,
     SECRET_KEY,
     EXCEED_PERCENT,
     TODAY_LIMIT,
     NOTIFY_INTERVAL,
+    BASE_URL
 }
 /**
  * price ticker structure
