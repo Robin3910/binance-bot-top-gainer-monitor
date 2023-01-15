@@ -19,16 +19,16 @@ function updateCoinMap(msgData) {
         }
         if (coinMap[name]["percent"]) {
             if (coinMap[name]["percent"] - parseFloat(coinData["P"]) >= config.EXCEED_PERCENT) {
-                util.notifyToPhone(0, `${name} exceed percent over ${config.EXCEED_PERCENT}|cur percent: ${parseFloat(coinData["P"])}`);
+                util.notifyToPhone(`sell-${name}`, `${name} exceed percent over ${config.EXCEED_PERCENT}|cur percent: ${parseFloat(coinData["P"])}`);
             }
             if (parseFloat(coinData["P"]) >= config.TODAY_LIMIT) {
                 if (coinMap[name]["lastNotifyTs"]) {
                     if (new Date().getTime() - coinMap[name]["lastNotifyTs"] >= config.NOTIFY_INTERVAL) {
-                        util.notifyToPhone(0, `${name} gain percent over ${config.TODAY_LIMIT}`);
+                        util.notifyToPhone(`sell-${name}`, `${name} gain percent over ${config.TODAY_LIMIT}`);
                         coinMap[name]["lastNotifyTs"] = new Date().getTime();
                     }
                 } else {
-                    util.notifyToPhone(0, `${name} gain percent over ${config.TODAY_LIMIT}`);
+                    util.notifyToPhone(`sell-${name}`, `${name} gain percent over ${config.TODAY_LIMIT}`);
                     coinMap[name]["lastNotifyTs"] = new Date().getTime();
                 }
             }
